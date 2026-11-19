@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>전담 수업 노트 사용 설명서</title>
+<style>
+:root{--ink:#1b2333;--muted:#6b7588;--line:#e6ebf3;--line2:#d7deea;--primary:#2f6bff;--primary-soft:#eaf1ff;--soft:#f3f6fb;--ok:#008a05;--warn:#b25e00;--warn-soft:#fff6e6}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:'Pretendard','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-underline-offset:3px}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);padding:56px 0 40px;background:radial-gradient(circle at 90% 0%,#e3ecff 0 220px,transparent 221px),linear-gradient(180deg,#f5f8ff,#fff)}
+.brand{color:var(--primary);font-weight:700;font-size:15px;letter-spacing:.02em}
+h1{font-size:34px;line-height:1.3;margin:8px 0 12px;letter-spacing:-.03em;font-weight:700}
+.lead{font-size:18px;color:var(--muted);margin:0 0 24px}
+.cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(120deg,#2f6bff,#5b8cff);color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:13px 24px;box-shadow:0 8px 20px rgba(47,107,255,.25)}
+.cta:hover{filter:brightness(1.05)}
+.cta.ghost{background:#fff;color:var(--ink);border:1px solid var(--line2);margin-left:8px;box-shadow:none}
+.cta.ghost:hover{background:var(--soft)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.fact{background:var(--soft);border-radius:999px;padding:6px 14px;font-size:14px}
+nav.toc{border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:32px 0 8px}
+nav.toc b{display:block;margin-bottom:6px}
+nav.toc ol{margin:0;padding-left:22px;columns:2;column-gap:32px}
+nav.toc li{break-inside:avoid;font-size:15px}
+section{padding:36px 0;border-bottom:1px solid var(--line)}
+h2{font-size:24px;margin:0 0 6px;letter-spacing:-.02em;font-weight:700}
+h2 .n{color:var(--primary);margin-right:8px}
+h3{font-size:18px;margin:22px 0 4px;font-weight:600}
+p{margin:6px 0 10px}
+.muted{color:var(--muted)}
+ol.steps,ul.list{margin:8px 0 12px;padding-left:24px}
+ol.steps li,ul.list li{margin-bottom:4px}
+figure{margin:16px 0 8px}
+figure img{width:100%;height:auto;border:1px solid var(--line2);border-radius:14px;display:block;box-shadow:rgba(0,0,0,.02) 0 0 0 1px,rgba(0,0,0,.04) 0 2px 6px 0,rgba(0,0,0,.08) 0 4px 8px 0}
+figcaption{font-size:14px;color:var(--muted);margin-top:8px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.note{background:var(--soft);border-radius:12px;padding:14px 18px;margin:14px 0}
+.note.warn{background:var(--warn-soft);color:#5c3a00}
+.note b:first-child{display:block;margin-bottom:2px}
+kbd,.k{display:inline-block;border:1px solid var(--line2);border-radius:6px;padding:0 7px;font-size:14px;background:#fff;font-family:inherit;line-height:1.6;white-space:nowrap}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+th,td{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500}
+details{border:1px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+summary{cursor:pointer;font-weight:600}
+details[open] summary{margin-bottom:6px}
+footer{padding:36px 0 64px;color:var(--muted);font-size:14px}
+@media (max-width:700px){
+  h1{font-size:27px} .two{grid-template-columns:1fr} nav.toc ol{columns:1}
+  .cta.ghost{margin:10px 0 0}
+}
+@media print{ .cta,nav.toc{display:none} section{break-inside:avoid-page} }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="brand">전담 수업 노트</div>
+  <h1>사용 설명서</h1>
+  <p class="lead">여러 반을 맡는 교과전담 선생님을 위한 수업 기록 도구입니다.<br>진도, 누가기록, 과제 확인, 자리배치, 전자칠판 수업 화면을 한곳에서 씁니다.</p>
+  <a class="cta" href="./" rel="noopener">앱 열기</a><a class="cta ghost" href="#file">파일로 받아 쓰기</a>
+  <div class="facts"><span class="fact">회원가입 없음</span><span class="fact">학생 정보는 내 컴퓨터에만 · 암호화 저장</span><span class="fact">인터넷으로 아무것도 보내지 않음</span><span class="fact">크롬 · 엣지 권장</span></div>
+  <nav class="toc" aria-label="목차"><b>목차</b><ol>
+    <li><a href="#start">처음 시작하기</a></li><li><a href="#class">반과 학생 넣기</a></li><li><a href="#tt">시간표</a></li>
+    <li><a href="#today">오늘 화면</a></li><li><a href="#prog">진도 기록</a></li><li><a href="#rec">누가기록</a></li>
+    <li><a href="#check">과제·준비물 · 수행평가</a></li><li><a href="#seat">자리배치</a></li><li><a href="#disp">수업 화면 (전자칠판)</a></li>
+    <li><a href="#save">저장 · 백업 · 다른 PC</a></li><li><a href="#year">새 학년도</a></li><li><a href="#file">파일로 받아 쓰기 · 옮겨오기</a></li>
+    <li><a href="#faq">개인정보 · 보안 Q&amp;A</a></li></ol></nav>
+</div></header>
+
+<main class="wrap">
+<section id="start">
+  <h2><span class="n">1</span>처음 시작하기</h2>
+  <ol class="steps">
+    <li><b>크롬</b> 또는 <b>엣지</b>에서 앱 주소를 엽니다. (즐겨찾기에 넣어 두면 편합니다)</li>
+    <li>사용할 <b>비밀번호</b>(6자 이상)를 정하고 <span class="k">시작하기</span>를 누릅니다.</li>
+    <li>다른 PC에서 쓰던 자료가 있으면 아래쪽 <span class="k">파일에서 가져오기</span>로 백업·동기화 파일을 고릅니다.</li>
+  </ol>
+  <div class="note warn"><b>비밀번호는 꼭 따로 적어 두세요.</b>비밀번호는 어디에도 저장되지 않아서, 잊어버리면 누구도 자료를 열 수 없습니다. 브라우저가 비밀번호를 저장하겠냐고 물으면 '안 함'을 고르는 것이 안전합니다.</div>
+  <figure><img src="guide-img/01-start.png" alt="처음 시작 화면: 비밀번호 정하기와 파일에서 가져오기" loading="lazy"><figcaption>처음 시작 화면</figcaption></figure>
+</section>
+
+<section id="class">
+  <h2><span class="n">2</span>반과 학생 넣기</h2>
+  <ol class="steps">
+    <li>왼쪽 <b>학급 관리</b> → <span class="k">+ 학급 추가</span>에서 학년·반·색·단원 목록을 고릅니다.</li>
+    <li>반을 열고 <span class="k">명단 한꺼번에 넣기</span>를 누른 뒤, 엑셀에서 <b>번호·이름(·성별)</b> 칸을 복사해 붙여넣습니다. 이름만 한 줄씩 써도 됩니다.</li>
+    <li>전학 간 학생은 지우지 말고 <b>전출</b>에 체크하세요. 기록은 남고 명단에서는 흐리게 보입니다.</li>
+  </ol>
+  <p class="muted">학생 정보는 <b>번호·이름</b>만 받습니다. 성별은 선택이며 자리배치·모둠의 '남녀 섞기'에만 쓰입니다.</p>
+  <div class="two">
+    <figure><img src="guide-img/02-class.png" alt="반 화면: 진도, 누가기록, 다음 시간 메모, 학생 명단" loading="lazy"><figcaption>반 화면</figcaption></figure>
+    <figure><img src="guide-img/03-paste.png" alt="명단 한꺼번에 넣기 창과 미리보기" loading="lazy"><figcaption>명단 붙여넣기 — 넣기 전에 미리보기가 나옵니다</figcaption></figure>
+  </div>
+</section>
+
+<section id="tt">
+  <h2><span class="n">3</span>시간표</h2>
+  <p>왼쪽 <b>시간표</b>에서 요일·교시 칸을 눌러 들어가는 반을 고릅니다. 교시 시간은 왼쪽 칸에서 고칠 수 있고, 하루 교시 수도 바꿀 수 있습니다. 시간표를 넣으면 <b>오늘 화면</b>에 지금 수업이 자동으로 나옵니다.</p>
+  <figure><img src="guide-img/04-timetable.png" alt="주간 시간표 입력 화면" loading="lazy"></figure>
+</section>
+
+<section id="today">
+  <h2><span class="n">4</span>오늘 화면</h2>
+  <ul class="list">
+    <li><b>지금 수업</b>(없으면 다음 수업) 카드에 지난 진도와 이번 차시, <b>다음 시간 메모</b>, <b>확인할 과제</b>가 보입니다.</li>
+    <li><span class="k">✓ Lesson 1 3차시 마침</span>을 누르면 창 없이 바로 진도가 기록됩니다. 잘못 눌렀으면 알림의 <b>되돌리기</b>를 누르세요.</li>
+    <li>메모를 남기거나 다른 차시를 고를 때는 <span class="k">자세히 기록</span>을 누릅니다.</li>
+    <li>아래에는 오늘 시간표와 <b>반별 진도 비교</b>(몇 차시 늦은지)가 나옵니다.</li>
+  </ul>
+  <figure><img src="guide-img/05-home.png" alt="오늘 화면: 지금 수업 카드와 오늘의 수업 목록" loading="lazy"></figure>
+</section>
+
+<section id="prog">
+  <h2><span class="n">5</span>진도 기록</h2>
+  <p>기록 창은 위에서 아래로 <b>날짜 → 단원(◀ ▶로 넘기기) → 차시 칸</b> 순서입니다. 다음 차시가 미리 골라져 있어서 대부분 <span class="k">기록</span>만 누르면 됩니다. ✓ 표시는 이미 기록한 차시입니다.</p>
+  <div class="two">
+    <figure><img src="guide-img/06-lesson.png" alt="진도 기록 창: 날짜, 단원 넘기기, 차시 칸" loading="lazy"><figcaption>진도 기록 창</figcaption></figure>
+    <figure><img src="guide-img/07-progress.png" alt="진도 화면: 반별 비교와 단원별 차시 칸" loading="lazy"><figcaption>진도 화면 — 칸을 누르면 그 차시를 기록하거나 고칩니다</figcaption></figure>
+  </div>
+  <h3>다른 과목 · 다른 교과서 쓰기</h3>
+  <p><b>진도 → 교과·단원 설정</b>에서 단원 목록을 관리합니다. 동아(정은숙) 5학년 영어가 기본으로 들어 있습니다.</p>
+  <ul class="list">
+    <li><span class="k">+ 새로 만들기</span>: 이름(예: 5학년 과학), 단원 수, 단원당 차시를 넣으면 '1단원, 2단원…'이 만들어집니다.</li>
+    <li><span class="k">목차 한꺼번에 넣기</span>: 교과서 목차를 한 줄에 한 단원씩 붙여넣으면 자동으로 정리됩니다. 쪽수(…72)는 지워집니다.</li>
+    <li><span class="k">공유용 파일로 저장</span> / <span class="k">공유받은 파일 가져오기</span>: 만든 단원 목록을 동료 선생님과 주고받습니다. 이 파일에는 학생 정보가 없습니다.</li>
+    <li>반마다 어떤 목록을 쓸지는 <b>학급 정보 수정</b>에서 고릅니다.</li>
+  </ul>
+</section>
+
+<section id="rec">
+  <h2><span class="n">6</span>누가기록</h2>
+  <ul class="list">
+    <li>오늘 화면·반 화면·누가기록 화면의 <span class="k">누가기록 쓰기</span>에서 <b>여러 학생을 한 번에</b> 골라 기록할 수 있습니다. (모둠 칭찬 등)</li>
+    <li>태그(칭찬·학습·태도·과제·상담·기타)는 <span class="k">태그 편집</span>에서 바꿀 수 있습니다.</li>
+    <li>반을 고르면 <b>학생별 기록 수</b>가 보이고, 0건인 학생은 주황색으로 표시됩니다.</li>
+    <li>학생을 고르고 <span class="k">모아보기 복사</span>를 누르면 날짜순 글로 복사됩니다. 학기말 교과 세특 작성 때 참고하세요.</li>
+  </ul>
+  <figure><img src="guide-img/08-records.png" alt="학생 한 명의 누가기록 모아보기" loading="lazy"></figure>
+</section>
+
+<section id="check">
+  <h2><span class="n">7</span>과제·준비물 · 수행평가</h2>
+  <h3>과제·준비물</h3>
+  <ul class="list">
+    <li><span class="k">+ 새 항목</span>에서 여러 반을 한 번에 골라 같은 과제를 만듭니다.</li>
+    <li>학생 이름을 누르면 완료 ✓ ↔ 미완료가 바뀝니다. 확인이 끝나면 <span class="k">마감</span>합니다.</li>
+    <li>수업 화면의 <b>제출 확인</b>에서 학생이 직접 자기 이름을 누르게 할 수도 있습니다. (아래 9번)</li>
+  </ul>
+  <figure><img src="guide-img/09-checks.png" alt="과제 체크 화면: 학생 이름을 눌러 완료 표시" loading="lazy"></figure>
+  <h3>수행평가</h3>
+  <ul class="list">
+    <li><span class="k">+ 새 평가</span>: 이름, 영역, 성취기준, 평가 단계(상·중·하 / 4단계 / ◎○△), 평가할 반을 정합니다. 평가 하나를 여러 반이 함께 씁니다.</li>
+    <li>학생마다 결과를 누르고 짧은 메모를 남깁니다. 같은 결과를 한 번 더 누르면 지워집니다. 반별 분포가 위에 보입니다.</li>
+  </ul>
+</section>
+
+<section id="seat">
+  <h2><span class="n">8</span>자리배치</h2>
+  <ul class="list">
+    <li>배치 형태(1인 분단·2인 짝·4인/6인 모둠)와 줄·칸 수를 정합니다. <span class="k">책상 편집</span>으로 교실 구조에 맞게 빈 공간을 만들 수 있습니다.</li>
+    <li>학생을 <b>끌어다 놓거나</b>, 학생을 <b>누른 뒤 옮길 자리를 누르면</b> 자리가 바뀝니다.</li>
+    <li><span class="k">무작위 배치</span>: 학생을 누르면 나오는 <b>고정</b> 자리는 그대로 두고, <b>짝 피하기</b>와 <b>남녀 섞어 앉히기</b>를 지켜 배치합니다.</li>
+    <li>배치 이력은 최대 20개까지 저장되고, <span class="k">인쇄</span>하면 자리표만 깔끔하게 나옵니다.</li>
+  </ul>
+  <figure><img src="guide-img/10-seating.png" alt="자리배치 화면" loading="lazy"></figure>
+</section>
+
+<section id="disp">
+  <h2><span class="n">9</span>수업 화면 (전자칠판)</h2>
+  <p>왼쪽 아래 <span class="k">수업 화면 모드</span>를 누르고 반을 고릅니다. 수업 화면에는 <b>학생 이름과 자리만</b> 나오고, 누가기록·수행평가·메모는 나오지 않습니다.</p>
+  <figure><img src="guide-img/13-display-open.png" alt="수업 화면 열기: 이 창에서 보기 또는 새 창으로 열기" loading="lazy"></figure>
+  <table>
+    <tr><th style="width:34%">방법</th><th>이럴 때</th></tr>
+    <tr><td><b>이 창에서 보기</b></td><td>모니터가 하나일 때. 교사 화면으로 돌아올 때 비밀번호가 필요하고, 수업 중에는 자동 잠금이 꺼집니다.</td></tr>
+    <tr><td><b>새 창으로 열기 (듀얼 모니터)</b></td><td>새 창을 전자칠판 쪽으로 끌어다 놓고 <span class="k">전체 화면</span>을 누르세요. 원래 창은 계속 교사 화면으로 씁니다. 저장은 교사 창만 하며, 학생 창에는 비밀번호·암호화 키가 없습니다.</td></tr>
+  </table>
+  <div class="note"><b>새 창이 열리지 않으면</b>주소창 오른쪽의 팝업 차단 표시를 눌러 '항상 허용'을 고른 뒤 다시 누르세요.</div>
+  <h3>수업 화면 도구</h3>
+  <ul class="list">
+    <li><b>학습 목표</b>: 오늘 차시와 학습 목표를 크게 보여 줍니다.</li>
+    <li><b>칠판 메모</b>: 준비물·안내 사항을 큰 글씨로 적습니다. 글자 크기를 고를 수 있고, 반마다 저장되어 다음 시간에도 남아 있습니다.</li>
+    <li><b>자리</b>: 자리표 (학생 시점 / 교사 시점)</li>
+    <li><b>제출 확인</b>: 낸 학생 이름에 색이 켜집니다. <b>학생 누르기 [허용 | 잠금]</b>으로 학생이 직접 누르게 할 수 있습니다.</li>
+    <li><b>발표자 뽑기</b>, <b>타이머</b>(기본 시간 + 직접 입력), <b>모둠 만들기</b>(남녀 고르게 · 짝 피하기 · 지금 자리대로)</li>
+    <li><b>칭찬 점수</b>: 저장·보안 설정에서 켰을 때만 나옵니다. 개인·모둠 점수를 올리고, 0으로 되돌리기는 교사 화면(학급 관리)에서만 합니다.</li>
+  </ul>
+  <div class="two">
+    <figure><img src="guide-img/11-display-seats.png" alt="수업 화면: 자리표" loading="lazy"><figcaption>자리</figcaption></figure>
+    <figure><img src="guide-img/12-display-checks.png" alt="수업 화면: 제출 확인" loading="lazy"><figcaption>제출 확인</figcaption></figure>
+  </div>
+  <figure><img src="guide-img/15-display-memo.png" alt="수업 화면: 칠판 메모" loading="lazy"><figcaption>칠판 메모</figcaption></figure>
+</section>
+
+<section id="save">
+  <h2><span class="n">10</span>저장 · 백업 · 다른 PC</h2>
+  <ul class="list">
+    <li><b>자동 저장</b>: 입력하는 즉시 이 컴퓨터 브라우저 안에 암호화되어 저장됩니다. 저장 버튼이 없습니다.</li>
+    <li><b>자동 잠금</b>: 정한 시간(기본 10분) 동안 조작이 없으면 잠깁니다. 자리를 비울 때는 <span class="k">잠그기</span>를 눌러 주세요.</li>
+    <li><b>백업 파일</b>: <span class="k">백업 파일 내보내기</span>로 암호화된 .tdata 파일을 만들어 USB 등에 보관합니다. 파일은 만들 때의 비밀번호로 잠깁니다.</li>
+    <li><b>학교 PC ↔ 집 PC (자동 동기화)</b>: 구글 드라이브·OneDrive 같은 <b>PC 동기화 폴더</b>에 <span class="k">새 동기화 파일 만들기</span>를 하면, 고칠 때마다 그 파일이 갱신됩니다. 다른 PC에서는 첫 화면의 <span class="k">파일에서 가져오기</span>로 같은 파일을 고르고 같은 비밀번호를 넣습니다. (크롬·엣지에서만)</li>
+  </ul>
+  <div class="note"><b>두 PC에서 동시에 고치지 마세요.</b>한 곳에서 쓰고 나면 잠그기를 눌러 주세요. 양쪽이 모두 바뀌면 앱이 어느 쪽을 쓸지 물어봅니다.</div>
+  <figure><img src="guide-img/14-settings.png" alt="저장·보안 설정 화면" loading="lazy"></figure>
+</section>
+
+<section id="year">
+  <h2><span class="n">11</span>새 학년도</h2>
+  <ol class="steps">
+    <li><b>저장·보안 설정 → 학년도 → 새 학년도 시작하기</b>를 누릅니다. (시작 전에 백업 파일을 한 번 만들어 두세요)</li>
+    <li>지금 자료는 '<b>○○○○학년도</b>'로 묶여 보관됩니다. 단원 목록·교시 시간·설정은 그대로 가져가고, 원하면 반 구성(학년·반·색)도 가져갑니다. 학생 명단과 기록은 새로 시작합니다.</li>
+    <li>지난 학년도는 왼쪽 위 <b>학년도 선택</b>이나 설정의 <span class="k">보기</span>로 <b>보기 전용</b>으로 볼 수 있습니다.</li>
+    <li>오래된 학년도는 <span class="k">파일로 꺼내고 삭제</span>로 암호화 파일에 옮기고 앱에서는 지우세요. 필요할 때 <span class="k">보관 파일 열어보기</span>로 볼 수 있습니다.</li>
+  </ol>
+</section>
+
+<section id="file">
+  <h2><span class="n">12</span>파일로 받아 쓰기 · 옮겨오기</h2>
+  <p>인터넷 주소 대신 <b>HTML 파일 하나</b>를 내려받아 쓸 수도 있습니다. 학교 네트워크에서 주소가 막힐 때나, 인터넷 없이 쓰고 싶을 때 좋습니다.</p>
+  <table>
+    <tr><th style="width:24%"></th><th>인터넷 주소로 쓰기</th><th>파일로 받아 쓰기</th></tr>
+    <tr><td>여는 법</td><td>주소를 즐겨찾기</td><td><a href="index.html" download="전담수업노트.html">앱 파일 내려받기</a> → 크롬·엣지로 열기</td></tr>
+    <tr><td>업데이트</td><td>자동 (다음에 열 때 새 버전)</td><td>새 파일을 다시 받아 열기. <b>같은 브라우저라면 자료는 그대로</b> 이어집니다</td></tr>
+    <tr><td>사용 설명서</td><td>바로 열림</td><td>인터넷이 연결되어 있으면 열림</td></tr>
+  </table>
+  <h3>파일 ↔ 주소 사이에 자료 옮기기</h3>
+  <p>브라우저는 '파일로 연 앱'과 '주소로 연 앱'의 자료를 따로 보관합니다. 옮길 때는 한 번만 아래처럼 하세요.</p>
+  <ol class="steps">
+    <li>쓰던 쪽에서 잠금을 풀고 <b>저장·보안 설정 → 백업 파일 내보내기</b>로 .tdata 파일을 저장합니다.</li>
+    <li>새로 쓸 쪽을 열고 첫 화면의 <span class="k">파일에서 가져오기</span>로 그 파일을 고른 뒤, <b>원래 비밀번호</b>를 넣습니다.</li>
+    <li>잘 옮겨졌는지 확인한 뒤, 예전 쪽 자료는 <b>모든 데이터 삭제</b>로 지워 두면 깔끔합니다.</li>
+  </ol>
+  <p class="muted">자동 동기화를 쓰고 있었다면 2번에서 동기화 파일을 고르면 되고, 동기화도 그대로 이어집니다.</p>
+</section>
+
+<section id="faq">
+  <h2><span class="n">13</span>개인정보 · 보안 Q&amp;A</h2>
+  <details open><summary>학생 정보는 어디에 저장되나요?</summary>
+    <p>선생님 컴퓨터의 브라우저 안에만 저장됩니다. 저장할 때 선생님 비밀번호로 만든 열쇠로 <b>AES-256</b> 방식으로 암호화합니다. 서버가 없어서 다른 곳으로 보내지지 않습니다.</p></details>
+  <details><summary>앱을 인터넷 주소에서 여는데, 다른 사람이 내 자료를 볼 수 있나요?</summary>
+    <p>아닙니다. 인터넷 주소에서 받아 오는 것은 <b>앱 화면(프로그램)</b>뿐이고, 학생 자료는 각 선생님 컴퓨터 안에만 있습니다. 앱은 외부로 아무것도 보내지 못하도록 차단되어 있습니다. 같은 주소를 쓰는 다른 선생님과도 자료가 섞이지 않습니다.</p></details>
+  <details><summary>어떤 정보를 입력하나요?</summary>
+    <p>학급(학년·반), 학생 번호·이름, (선택) 성별, 그리고 선생님이 남기는 수업 기록입니다. 연락처·생년월일 등은 입력받지 않습니다.</p></details>
+  <details><summary>비밀번호를 잊어버리면요?</summary>
+    <p>복구할 방법이 없습니다. 비밀번호가 어디에도 저장되지 않기 때문입니다. 꼭 따로 적어 두세요. 다른 PC나 동기화 파일도 같은 비밀번호입니다.</p></details>
+  <details><summary>전자칠판에 기록이 보일 걱정은 없나요?</summary>
+    <p>수업 화면에는 학생 이름·자리·과제 제목·(켠 경우) 칭찬 점수만 나옵니다. 누가기록·수행평가·메모·성별은 나오지 않습니다. 교사 화면으로 돌아오려면 비밀번호가 필요합니다.</p></details>
+  <details><summary>여러 사람이 쓰는 컴퓨터에서 써도 되나요?</summary>
+    <p>쓸 수는 있지만, 사용 후 꼭 <b>잠그기</b>를 누르세요. 컴퓨터를 반납하거나 학년이 끝나면 <b>모든 데이터 삭제</b>로 지워 주세요.</p></details>
+  <details><summary>학년이 끝나면 자료를 어떻게 정리하나요?</summary>
+    <p>새 학년도를 시작하면 지난 자료가 보관함으로 옮겨집니다. 학생 기록은 목적이 끝나면 정리하는 것이 좋으므로, 오래된 학년도는 <b>파일로 꺼내고 삭제</b>하거나 삭제해 주세요.</p></details>
+</section>
+</main>
+
+<footer><div class="wrap">전담 수업 노트 · 학생 정보를 수집하지 않는 교사용 도구 · <a href="./" rel="noopener">앱 열기</a></div></footer>
+</body>
+</html>
